@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+<div th:align="center">
+
+    <h2>Create new user</h2>
+
+    <hr/>
+
+    <form th:action="@{/users/new}" th:object="${user}" method="post">
+
+            <p>
+                <label th:for="name">Name:</label>
+                <input type="text" name="firstName" th:id="firstName" th:value="${user.getFirstName()}">
+            </p>
+
+            <p>
+                <label th:for="lastName">Last name:</label>
+                <input type="text" name="secondName" th:id="lastName" th:value="${user.getSecondName()}"><br/>
+            </p>
+
+            <p>
+                <label th:for="age">Age:</label>
+                <input type="text" name="age" th:id="age" th:value="${user.getAge}"><br/>
+            </p>
+
+
+        <hr/>
+
+        <button type="submit">Create user!</button>
+
+    </form>
+    <br/>
+    <form th:action="@{/users}">
+        <button type="submit">Back to User List</button>
+    </form>
+</div>
+</body>
+</html>
